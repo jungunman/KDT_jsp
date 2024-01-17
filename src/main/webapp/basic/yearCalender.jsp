@@ -110,9 +110,7 @@
 		{"special","상훈이형 생일","2024년 12월 29일"}
 	};
 	*/
-			
-	
-	
+
 	specialDay.put("2023년 04월 06일", new String[]{"special","성재형 생일"});
 	specialDay.put("2023년 04월 30일", new String[]{"special","규휘 생일"});
 	specialDay.put("2024년 05월 26일", new String[]{"special","누군가의 생일"});

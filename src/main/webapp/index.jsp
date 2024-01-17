@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>네비게이터 ( 수업자료 )</h1>
-	<a href="basic/"></a>
+	<a href="basic/yearCalender.jsp">일년치 달력</a>
+	<a href="basic/yearCalender.jsp">일년치 달력</a>
 </body>
 </html>
