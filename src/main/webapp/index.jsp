@@ -21,6 +21,14 @@
 	<a href="implicit/config.jsp">config</a>
 	<a href="implicit/pageContext.jsp">pageContext</a>
 	<a href="implicit/page.jsp">page</a>
+	<h1>application</h1>
+	<a href="application/info.jsp">application</a>
+	<a href="application/ioCalculation.jsp">ioCalculation</a>
+	<a href="application/set1.jsp">set1</a>
+	<a href="application/get.jsp">get</a>
+	<a href="application/set2.jsp">set2</a>
+	<a href="application/loginMain.jsp">login</a>
+	
 	
 	
 	<br/>
