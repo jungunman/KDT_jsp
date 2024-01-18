@@ -16,7 +16,11 @@
 	<h1>Response</h1>
 	<a href="response/a.jsp">response/redirection - a </a>
 	<a href="response/joinForm.jsp">|| redirection - joinForm.jsp</a>
-	
+	<h1>implicit</h1>
+	<a href="implicit/out.jsp">out</a>
+	<a href="implicit/config.jsp">config</a>
+	<a href="implicit/pageContext.jsp">pageContext</a>
+	<a href="implicit/page.jsp">page</a>
 	
 	
 	<br/>
