@@ -16,5 +16,15 @@
 	<h1>Response</h1>
 	<a href="response/a.jsp">response/redirection - a </a>
 	<a href="response/joinForm.jsp">|| redirection - joinForm.jsp</a>
+	
+	
+	
+	<br/>
+	<br/>
+	<br/>
+	<h1>=================================================================</h1>
+	<h1>My Homework</h1>
+	<h4><a href="homework/response/regiNumForm.jsp">response [sendRedirect] - 주민등록번호 입력 시 성인, 미성년자, 외국인</a></h4>
+	
 </body>
 </html>
