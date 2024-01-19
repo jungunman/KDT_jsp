@@ -10,7 +10,6 @@
 <h1>logout.jsp</h1>
 <%
 	String pname = (String)application.getAttribute("pname");
-
 	application.removeAttribute("pid");
 	application.removeAttribute("pw");
 	application.removeAttribute("pname");

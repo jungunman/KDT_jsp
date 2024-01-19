@@ -28,10 +28,15 @@
 	<a href="application/get.jsp">get</a>
 	<a href="application/set2.jsp">set2</a>
 	<a href="application/loginMain.jsp">login</a>
-	
-	
-	
-	<br/>
+	<h1>Exception</h1>
+	<a href="exception/excep1.jsp">excep1</a>
+	<a href="exception/excep2.jsp">excep2</a>
+	<a href="exception/excep3.jsp">excep3</a>
+	<a href="exception/excep4.jsp">excep4</a>
+	<h1>Include</h1>
+	<a href="include/big1.jsp">big1</a>
+	<a href="include/bb.jsp">bb</a>
+
 	<br/>
 	<br/>
 	<h1>=================================================================</h1>
