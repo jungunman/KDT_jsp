@@ -1,0 +1,13 @@
+@import "./reset.css";
+
+/*Components*/
+@import "./coponents/header.css";
+
+
+/*screens*/
+@import "./screens/rooms.css";
+
+a{
+    text-decoration: none;
+    color: #000;
+}
