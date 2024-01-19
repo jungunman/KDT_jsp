@@ -20,6 +20,11 @@ header > .login{
     font-size: 20px;
     font-weight: 600px;
     padding: 5px;
+    transition: color 0.3s ease-in-out;
+}
+
+header > .login:hover{
+    color:#e07575;
 }
 
 header> .header_logo{
@@ -53,11 +58,11 @@ header>nav>ul>li{
 header>nav>ul>li>a{
     font-size: 30px;
     color: #fff;
-    transition: font-size 0.5s ease-in;
+    transition: font-size 0.5s ease-in-out;
 }
 
 
 header>nav>ul>li>a:hover{
-    font-size: 35px;
+    font-size: 32px;
     color: #e07575;
 }
