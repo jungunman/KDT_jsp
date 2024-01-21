@@ -9,9 +9,7 @@
 		nav = request.getParameter("nav");
 	}
 	
-	
-
-
+	String asideUrl ="screens/"+nav+".jsp";
 %>
 <html>
 <head>
@@ -19,13 +17,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./css/style.css">
 <title>편안함과 향긋함이 가득한 자연의 느낌 그대로 - Woong Rooms</title>
+<script src="./../../js/jquery-3.7.1.js"></script>
+<script src="./js/scroll.js"></script>
 </head>
 <body>
 	
 	<!-- header -->
 	<jsp:include page="components/header.jsp" />
 	
-	<!-- main -->
+	<!-- aside -->
+	
+	<jsp:include page="<%=asideUrl %>"/>
+	
+	<!-- main  -->
 	
 	<!-- footer -->
 	

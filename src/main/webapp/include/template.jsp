@@ -1,19 +1,11 @@
+<%@page import="basic_p.TemplateData"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="basic_p.Menu"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String cate = "info";
-
-	if(request.getParameter("cate")!=null){
-		cate = request.getParameter("cate");
-	}
-	String cateUrl = "menu/"+cate+".jsp";
-	
-	String main = "hello";
-
-	if(request.getParameter("main")!=null){
-		main = request.getParameter("main");
-	}
-	String mainUrl = cate+"/"+main+".jsp";
+	TemplateData data = new TemplateData(request);
 %>    
 <!DOCTYPE html>
 <html>
@@ -32,10 +24,11 @@
 	<tr>
 	
 		<td width="100px">
-			<jsp:include page="<%=cateUrl %>"/>
+			<%-- <jsp:include page="<%=cateUrl %>"/> --%>
+			<jsp:include page="inc/menu.jsp"/>
 		</td>
 		<td width="700px">
-			<jsp:include page="<%=mainUrl %>"/>
+			<jsp:include page="<%=data.mainUrl %>"/>
 		</td>
 	</tr>
 	<tr>

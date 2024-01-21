@@ -19,18 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-<!--  
-  <error-page>
-  	<error-code>404</error-code>
-  	<location>/error/err404.jsp</location>
-  </error-page>
-  <error-page>
-  	<error-code>500</error-code>
-  	<location>/error/err500.jsp</location>
-  </error-page>
-  <error-page>
-  	<exception-type>java.lang.ArrayIndexOutOfBoundsException</exception-type>
-  	<location>/error/errIndex.jsp</location>
-  </error-page>
-   -->
+  <servlet>
+    <description></description>
+    <display-name>serv</display-name>
+    <servlet-name>serv</servlet-name>
+    <servlet-class>request_p.serv</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>serv</servlet-name>
+    <url-pattern>/serv</url-pattern>
+  </servlet-mapping>
 </web-app>

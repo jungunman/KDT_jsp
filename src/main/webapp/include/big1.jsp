@@ -39,11 +39,13 @@ attribute를 변수처럼 직접사용 불가
 --%>
 pageContext : <%=pageContext.getAttribute("pname") %>,
 <%=pageContext.getAttribute("arr1") %>,
-<%=Arrays.toString((int [])pageContext.getAttribute("arr1")) %>
+<%=Arrays.toString((int [])pageContext.getAttribute("arr1")) %>,
+<%=pageContext.getAttribute("qq") %>,<!-- cc 페이지의 attribute : null 리턴 -->
 <br/>
 request : <%=request.getAttribute("nick") %>,
 <%=request.getAttribute("arr2") %>,
-<%=Arrays.toString((int [])request.getAttribute("arr2")) %>
+<%=Arrays.toString((int [])request.getAttribute("arr2")) %>,
+<%=request.getAttribute("rr") %>,<!-- cc 페이지를 가기전 null 리턴 -->
 <br/>
 <img src="../fff/child_1.jpg" alt="" />
 <br/>
@@ -64,7 +66,10 @@ request : <%=request.getAttribute("nick") %>,
 	//같은 이름으로 parameter를 중첩할 경우 배열로 보낸다
 	pageContext.include("cc.jsp?pid=qwer");
 %>
-<br/>big1 입니다.4 <br/>
+<br/>big1 입니다.4 
+<%=pageContext.getAttribute("qq") %>,<!-- cc 페이지의 attribute : null 리턴 -->
+<%=request.getAttribute("rr") %>,<!-- cc 페이지에서 설정한 내용 보임 -->
+<br/>
 <!-- 같은 파일 다시 include 가능 -->
 <jsp:include page="aa.jsp"/>
 </body>

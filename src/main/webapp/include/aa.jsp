@@ -10,7 +10,7 @@
 	no1++;	// 호출 or include 할때마다 누적 등가
 	no2++;	// 지역변수로 다시선언되어 1 을 증가
 %>
-aa 입니다.  <%=c %>, <%=d %>, <%=no1 %>, <%=no2 %>, 
+<h2>aa 입니다.</h2>  <%=c %>, <%=d %>, <%=no1 %>, <%=no2 %>, 
 <%=request.getParameter("pid") %>,
 <%=request.getParameter("age") %>,
 <%=request.getParameter("marriage") %><br>

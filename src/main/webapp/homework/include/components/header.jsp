@@ -1,3 +1,4 @@
+<!--header.jsp-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,9 +11,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="./index.html">Rooms</a></li>
-                <li><a href="">Reservation</a></li>
-                <li><a href="">EVENT</a></li>
+                <li><a href="?nav=rooms">ROOMS</a></li>
+                <li><a href="?nav=reservation">RESERVATION</a></li>
+                <li><a href="?nav=confirm">CONFIRM</a></li>
+                <li><a href="?nav=events">EVENT</a></li>
             </ul>
         </nav>
  
