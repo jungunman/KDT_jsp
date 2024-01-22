@@ -1,12 +1,8 @@
-<%@page import="homework_p.PageScreen"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<%
-	PageScreen ps = new PageScreen(request);
-	
-%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -26,7 +22,7 @@
 		<jsp:include page="<%=navUrl %>" />
  	--%>
 	<!-- main  -->
-	<jsp:include page="<%=ps.fullUrl %>"/>
+	
 	
 	<!-- footer -->
 	
