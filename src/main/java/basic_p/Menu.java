@@ -13,5 +13,11 @@ public class Menu {
 		cateTitle = cate.substring(cate.indexOf("_")+1);
 	}
 	
+	public Menu(String main, String title) {
+		this.main = main;
+		this.title = title;
+		
+	}
+	
 	
 }

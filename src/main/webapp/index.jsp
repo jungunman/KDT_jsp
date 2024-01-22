@@ -43,6 +43,15 @@
 	<a href="include/big1.jsp?pid=asdf&age=34&marriage=true">big1</a>
 	<a href="include/sub/bb.jsp">bb</a>
 	<a href="include/template.jsp?cate=info">template</a>
+	<a href="include/directive/big.jsp?pid=ABCD&age=30&marriage=true">directive</a>
+	<a href="include/directive/sub_a.jsp">sub_a</a>
+	<h1>Forward</h1>
+	<a href="forward/a.jsp?pid=woong&pwd=1234">a</a>
+	<a href="forward/info.jsp">info</a>
+	
+	
+
+
 
 	<br/>
 	<br/>
