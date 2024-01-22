@@ -64,6 +64,7 @@
 	<h4><a href="homework/response/regiNumForm.jsp">response [sendRedirect] - 주민등록번호 입력 시 성인, 미성년자, 외국인</a></h4>
 	<h4><a href="homework/application/loginMain.jsp"> 어플리케이션으로 로그인 정보 유지하기</a></h4>
 	<h4><a href="homework/include/index.jsp">Include를 사용하여 홈페이지 구성해보기</a></h4>
+	<h4><a href="homework/forward/index.jsp">Forward - Cookie Login 구현</a></h4>
 	
 </body>
 </html>
