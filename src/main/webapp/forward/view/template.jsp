@@ -30,6 +30,6 @@
 	<section>
 		<jsp:include page="<%=mainUrl%>"/>
 	</section>
-	<f0530
+
 </body>
 </html>

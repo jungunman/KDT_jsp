@@ -49,8 +49,12 @@
 	<a href="forward/a.jsp?pid=woong&pwd=1234">a</a>
 	<a href="forward/info.jsp">info</a>
 	
+	<h1>Cookie</h1>
+	<a href="cookie/make.jsp">make</a>
+	<a href="cookie/view.jsp">view</a>
+	<a href="cookie/modify.jsp">modify</a>
+	<a href="cookie/remove.jsp">remove</a>
 	
-
 
 
 	<br/>
