@@ -5,7 +5,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	TemplateData data = new TemplateData(request);
+	
+	TemplateData data = new TemplateData(request, application);
 %>    
 <!DOCTYPE html>
 <html>

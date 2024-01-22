@@ -5,7 +5,7 @@
 <%
 	ArrayList<Menu> menus = (ArrayList<Menu> )request.getAttribute("menus");
 %>    
-<h2>회사소개 메뉴야</h2>
+<h2><%=request.getAttribute("cate") %> 메뉴야</h2>
 <table width="100%">
 <% for(Menu m : menus) {%>
 	<tr>

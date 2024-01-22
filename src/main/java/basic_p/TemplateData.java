@@ -1,50 +1,85 @@
 package basic_p;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.BufferedReader;
+import java.io.File;
 
+import java.io.FileReader;
+import java.util.ArrayList;
+
+import java.util.LinkedHashMap;
+
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 
 public class TemplateData {
 	
 	public String mainUrl;
 	
-	public TemplateData(HttpServletRequest request) {
+	String firstLine(File ff) {
+		String res = null;
+		try {
+			FileReader fr = new FileReader(ff);
+			BufferedReader br = new BufferedReader(fr);
+			br.readLine();
+			br.readLine();
+			res = br.readLine();
+			
+			br.close();
+			fr.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	public TemplateData(HttpServletRequest request, ServletContext application) {
 		// TODO Auto-generated constructor stub
 		
-		String cate = "info";
+		
+		File mains = new File(application.getRealPath("include/main"));
+		
+		LinkedHashMap<String, ArrayList<Menu>>menuMap = new LinkedHashMap();
+		
+		
+		
+		for (File dirs: mains.listFiles()) {
+			
+			ArrayList<Menu> mainList = new ArrayList();
+			
+			for (File ff: dirs.listFiles()) {
+				String mainName = ff.getName().split("[.]")[0];
+				
+				String title = firstLine(ff);
+				mainList.add(new Menu(dirs.getName(),mainName,title));
+			}
+			
+			menuMap.put(dirs.getName(), mainList);
+		}
+		
+		ArrayList<Menu> headers = new ArrayList();
+		
+		for (ArrayList<Menu> dirs : menuMap.values()) {
+			headers.add(dirs.get(0));
+			//System.out.println(dirs.get(0).cate+","+dirs.get(0).main+","+dirs.get(0).title);
+		}
+
+		request.setAttribute("headers", headers);
+
+		String cate = headers.get(0).cate;
+		String main = headers.get(0).main;
 
 		if(request.getParameter("cate")!=null){
 			cate = request.getParameter("cate");
 		}
-		String cateUrl = "menu/"+cate+".jsp";
-		
-		String main = "hello";
 
 		if(request.getParameter("main")!=null){
 			main = request.getParameter("main");
 		}
-		mainUrl = cate+"/"+main+".jsp";
+		mainUrl = "main/"+cate+"/"+main+".jsp";
+		String cateTitle = cate.substring(cate.indexOf("_")+1);
 		
-		HashMap<String, ArrayList<Menu>>menuMap = new HashMap();
-		ArrayList<Menu> infos = new ArrayList();
-		
-		infos.add(new Menu("info","hello","인사말"));
-		infos.add(new Menu("info","history","연혁"));
-		infos.add(new Menu("info","location","오시는길"));
-		
-		ArrayList<Menu> galls = new ArrayList();
-		
-		galls.add(new Menu("gallery","spring","봄"));
-		galls.add(new Menu("gallery","summer","여름"));
-		galls.add(new Menu("gallery","autumn","가을"));
-		galls.add(new Menu("gallery","winter","겨울"));
-		
-		
-		menuMap.put("info", infos);
-		
-		menuMap.put("gallery", galls);
-		
+		request.setAttribute("cateTitle", cateTitle);
 		request.setAttribute("menus", menuMap.get(cate));
 	}
 

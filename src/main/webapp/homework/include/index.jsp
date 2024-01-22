@@ -22,8 +22,9 @@
 	<jsp:include page="components/header.jsp" />
 	
 	<!-- aside -->
+	<%--
 		<jsp:include page="<%=navUrl %>" />
-
+ 	--%>
 	<!-- main  -->
 	<jsp:include page="<%=ps.fullUrl %>"/>
 	
