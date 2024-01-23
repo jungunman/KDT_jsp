@@ -7,7 +7,7 @@
 <title>modify</title>
 </head>
 <body>
-<h1>쿠키 수정</h1>
+<h1>쿠키수정</h1>
 <%
 
 	response.addCookie(new Cookie("pid","ccc"));

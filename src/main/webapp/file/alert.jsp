@@ -4,14 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>view</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>쿠키보기</h1>
-<%
-	for(Cookie coo : request.getCookies()){
-%>
-<%=coo.getName() %> : <%=coo.getValue() %><br/>
-<% } %>
+<script>
+	alert("저장되었단다!");
+	location.href="index.jsp"
+</script>
 </body>
 </html>

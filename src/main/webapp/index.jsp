@@ -55,6 +55,18 @@
 	<a href="cookie/modify.jsp">modify</a>
 	<a href="cookie/remove.jsp">remove</a>
 	
+	<h1>Session</h1>
+	<a href="session/info.jsp">info</a>
+	<a href="session/set1.jsp">set1</a>
+	<a href="session/view.jsp">view</a>
+	<a href="session/set2.jsp">set2</a>
+	<a href="session/delete1.jsp">delete1</a>
+	<a href="session/delete2.jsp">delete2</a> <br />
+	<a href="session/work/login.jsp">login</a>
+	
+
+	<h1>file</h1>
+	<a href="file/upForm.jsp">upform</a>
 
 
 	<br/>

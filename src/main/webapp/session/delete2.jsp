@@ -4,14 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>view</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>쿠키보기</h1>
-<%
-	for(Cookie coo : request.getCookies()){
-%>
-<%=coo.getName() %> : <%=coo.getValue() %><br/>
-<% } %>
+<h1>delete2</h1>
+<% session.invalidate();%>
 </body>
 </html>
