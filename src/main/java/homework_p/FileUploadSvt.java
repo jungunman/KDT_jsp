@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 @WebServlet("/FileUploadSvt")
 @MultipartConfig(
-		location = "D:\\LSH\\apache-tomcat-10.1.18\\temp",
+		location = "C:\\woong\\apache-tomcat-10.1.18\\temp",
 		maxFileSize = 1024*1024*50,
 		maxRequestSize = 1024*1024*1024,
 		fileSizeThreshold = 1024*1024*50
@@ -39,37 +39,33 @@ public class FileUploadSvt extends HttpServlet {
 		String resumeStr = resume.getSubmittedFileName();
 		
 		
-		if( !Pattern.matches("^(jpeg|jpg|png|gif|pdf|bmp)$", imgStr.substring(imgStr.lastIndexOf(".")+1).toLowerCase())) {
+		if( !Pattern.matches("^(jpeg|jpg|png|gif|pdf|bmp)$", imgStr.substring(imgStr.lastIndexOf(".")+1).toLowerCase())
+				||!Pattern.matches("^(doc|hwp|txt|pdf)$", resumeStr.substring(resumeStr.lastIndexOf(".")+1).toLowerCase())) {
 			dispatcher = request.getRequestDispatcher("homework/fileUpload/redirects/failUpload.jsp");
 			picture.delete();
 			dispatcher.forward(request, response);
 		}
 		
-		if( !Pattern.matches("^(doc|hwp|txt|pdf)$", resumeStr.substring(resumeStr.lastIndexOf(".")+1).toLowerCase())) {
-			dispatcher = request.getRequestDispatcher("homework/fileUpload/redirects/failUpload.jsp");
-			resume.delete();
-			dispatcher.forward(request, response);
-		}
 		
-		
-		String picturePath = "D:\\LSH\\workspace\\KDT_jsp\\src\\main\\webapp\\homework\\fileUpload\\pictures";
+		String picturePath = "C:\\woong\\workspace\\KDT_jsp\\src\\main\\webapp\\homework\\fileUpload\\pictures";
 		
 		picture.write(picturePath+"\\"+imgStr);
 		picture.delete();
 		
-		String resumePath = "D:\\LSH\\workspace\\KDT_jsp\\src\\main\\webapp\\homework\\fileUpload\\resumes";
+		String resumePath = "C:\\woong\\workspace\\KDT_jsp\\src\\main\\webapp\\homework\\fileUpload\\resumes";
 		resume.write(resumePath+"\\"+resumeStr);
-		picture.delete();
+		resume.delete();
 		
 		request.getSession().setAttribute("userInfo", new DetailsInfo(
 				request.getParameter("pid"), 
 				request.getParameter("pwd"), 
 				request.getParameter("pname"), 
-				picturePath+"\\"+imgStr, 
+				imgStr, 
 				resumePath+"\\"+resumeStr));
+		
 		request.getSession().setAttribute("url", "screens/detail.jsp");
 		
-		dispatcher = request.getRequestDispatcher("homework/fileUpload/index.jsp");
+		dispatcher = request.getRequestDispatcher("homework/fileUpload/redirects/successRegister.jsp");
 		dispatcher.forward(request, response);
 		
 	}

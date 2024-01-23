@@ -7,5 +7,5 @@
 
 <script>
 	alert("로그아웃 하셨습니다");
-	location.href="homework/fileUpload/index.jsp";
+	location.href="../index.jsp";
 </script>
