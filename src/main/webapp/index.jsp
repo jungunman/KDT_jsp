@@ -71,6 +71,12 @@
 	<a href="file/download.jsp">download</a>
 	<a href="file/fileList.jsp">fileList</a>
 
+	<h1>el</h1>
+	<a href="el/exam.jsp?pid=asd&kor=78&eng=79&mat=88">exam</a>
+	<a href="el/var.jsp?pid=asd&kor=78&eng=79&mat=88">var</a>
+	<a href="el/var2.jsp">var2</a>
+
+
 
 	<br/>
 	<br/>
@@ -82,6 +88,7 @@
 	<h4><a href="homework/forward/index.jsp">Forward - Cookie Login 구현</a></h4>
 	<h4><a href="homework/fileUpload/index.jsp">FileUpload로 회원 가입 구현하기 - 파일 업로드 </a></h4>
 	<h4><a href="homework/session/index.jsp">FileUpload로 회원 가입 구현하기 - 세션</a></h4>
+	<h4><a href="homework/el/coffee.jsp">EL TAG - Coffee</a></h4>
 	
 </body>
 </html>

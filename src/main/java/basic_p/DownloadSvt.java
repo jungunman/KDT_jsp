@@ -33,6 +33,9 @@ public class DownloadSvt extends HttpServlet {
 		String fileName =request.getParameter("fileName");
 		response.setHeader("Content-Disposition", "attachment; fileName="+URLEncoder.encode(fileName,"utf-8"));
 		
+		System.out.println(request.getServletContext());
+		System.out.println(request.getServletContext().getRealPath("fff"));
+		
 		try(ServletOutputStream sos = response.getOutputStream();
 				FileInputStream fis = new FileInputStream(request.getServletContext().getRealPath("fff")+"\\"+fileName)){
 			byte [] buf = new byte[1024];
