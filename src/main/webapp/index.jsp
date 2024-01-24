@@ -67,6 +67,9 @@
 
 	<h1>file</h1>
 	<a href="file/upForm.jsp">upform</a>
+	<a href="file/multiForm.jsp">multiForm</a>
+	<a href="file/download.jsp">download</a>
+	<a href="file/fileList.jsp">fileList</a>
 
 
 	<br/>
