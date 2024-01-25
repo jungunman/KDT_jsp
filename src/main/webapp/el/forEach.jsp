@@ -84,5 +84,23 @@
 	</c:forEach>
 	
 	
+	<c:set  var="even" value="0"/>
+	<c:set  var="three" value="1"/>
+	
+	<c:forTokens var="num" items="1,2,3,4,5,6-7-8-9-10-11;12;13;14" delims=",-;">
+		<c:choose>
+			<c:when test="${num%2 ==0 }">
+				<c:set var="even" value="${ even+num }" />
+			</c:when>
+			<c:when test="${num%3 ==0 }">
+				<c:set var="three" value="${ three*num }" />
+			</c:when>
+		</c:choose>
+	</c:forTokens>
+	
+	2의 배수의 합 : ${even} 
+	3의      곱 : ${three}
+	
+	
 </body>
 </html>

@@ -78,6 +78,8 @@
 	<a href="el/if_choose.jsp">if_choose</a>
 	<a href="el/grade.jsp">grade</a>
 	<a href="el/forEach.jsp">forEach</a>
+	<a href="el/url.jsp">url</a>
+	<a href="el/fmt.jsp">fmt</a>
 
 
 
