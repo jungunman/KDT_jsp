@@ -95,5 +95,11 @@
 	<h4><a href="homework/el/coffee.jsp">EL TAG - Coffee</a></h4>
 	<h4><a href="homework/el/inputForm.jsp">EL TAG - Coffee Form</a></h4>
 	
+	<br/>
+	<br/>
+	<h1>=================================================================</h1>
+	<h1>My Project Function Practice</h1>
+	<h4><a href="0_project_practice/main.jsp">메인</a></h4>
+	
 </body>
 </html>
