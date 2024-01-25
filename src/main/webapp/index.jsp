@@ -75,6 +75,9 @@
 	<a href="el/exam.jsp?pid=asd&kor=78&eng=79&mat=88">exam</a>
 	<a href="el/var.jsp?pid=asd&kor=78&eng=79&mat=88">var</a>
 	<a href="el/var2.jsp">var2</a>
+	<a href="el/if_choose.jsp">if_choose</a>
+	<a href="el/grade.jsp">grade</a>
+	<a href="el/forEach.jsp">forEach</a>
 
 
 
