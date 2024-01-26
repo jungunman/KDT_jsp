@@ -82,6 +82,10 @@
 	<a href="el/fmt.jsp">fmt</a>
 
 
+	<h1>jdbc</h1>
+	<a href="person/list.jsp">회원목록</a>
+
+
 
 	<br/>
 	<br/>
