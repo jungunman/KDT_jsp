@@ -7,7 +7,6 @@
 <title>대에충 기능 넣어보려고 만든 메인</title>
 </head>
 <body>
-
 	<header>
 		<h1>로고 자리</h1>
 		<nav>
@@ -23,12 +22,9 @@
 	<main>
 		<jsp:include page="screens/join.jsp" />
 	</main>
-	
 	<footer>
 		<h2>Footer</h2>
 		<p>발바닥</p>
 	</footer>
-	
-	
 </body>
 </html>
