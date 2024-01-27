@@ -17,16 +17,40 @@ public class MemberDAO {
 	
 	public MemberDAO() {	
 		try {
+			
+			Class.forName("org.mariadb.jdbc.Driver");
+		
 			this.con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/task_db", "task", "1111");
 			this.stmt = con.createStatement();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}finally {
+			close();
 		}
 	}
 	
 	
-	
+	public int joinMember(MemberDTO dto) {
+		int result = 0;
+		int [] gender = {-1,0,1,0,1,0,1,0,1};
+		
+		this.sql = "insert into member values "
+				+ "('"+dto.getNickName()+"','"+dto.getId()+"','"+dto.getPwd()+"','"+dto.getEmail()+"',"
+				+ "'"+dto.getPhoneNumber()+"',sysdate(),'"+dto.getFrontNum()+"','"+dto.getBackNum()+"',"+gender[Integer.parseInt(dto.getBackNum().substring(0,1))]+")";
+		
+		System.out.println("sql [ "+sql+ "]");
+		try {
+			
+			result = stmt.executeUpdate(sql);
+			
+		} catch (SQLException e){e.printStackTrace();}
+		finally {close();}
+		
+		return result;
+	}
 	
 	void close(){
 		if(con!=null) {try {con.close();} catch (SQLException e) {e.printStackTrace();}}

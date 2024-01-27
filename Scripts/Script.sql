@@ -29,3 +29,7 @@ create table board(
 show tables;
 desc member;
 desc board;
+
+-- 회원가입 쿼리
+
+insert into member values('firstMember','fisrtId','firstPwd','firstMail','01011112222',sysdate(),'950530','1234567',0);
