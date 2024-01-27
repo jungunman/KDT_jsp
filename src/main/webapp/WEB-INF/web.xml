@@ -29,14 +29,4 @@
     <servlet-name>serv</servlet-name>
     <url-pattern>/serv</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>JoinSvt</display-name>
-    <servlet-name>JoinSvt</servlet-name>
-    <servlet-class>projectPractice_p.JoinSvt</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>JoinSvt</servlet-name>
-    <url-pattern>/JoinSvt</url-pattern>
-  </servlet-mapping>
 </web-app>

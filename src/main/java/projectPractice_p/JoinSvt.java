@@ -14,6 +14,7 @@ import homework_db_p.MemberDTO;
 /**
  * Servlet implementation class JoinSvt
  */
+@WebServlet("/JoinSvt")
 public class JoinSvt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

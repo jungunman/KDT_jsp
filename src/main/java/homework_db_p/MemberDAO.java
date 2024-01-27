@@ -27,8 +27,6 @@ public class MemberDAO {
 			e.printStackTrace();
 		}catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}finally {
-			close();
 		}
 	}
 	

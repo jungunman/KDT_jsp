@@ -22,6 +22,9 @@
 	<main>
 		<jsp:include page="screens/join.jsp" />
 	</main>
+	<aside>
+		<jsp:include page="components/login.jsp" />
+	</aside>
 	<footer>
 		<h2>Footer</h2>
 		<p>발바닥</p>
