@@ -50,6 +50,31 @@ public class MemberDAO {
 		return result;
 	}
 	
+	
+	public MemberDTO login(MemberDTO dto) {
+		MemberDTO result = null;
+		
+		sql = "select id,pwd,nick_name from member where id='"+dto.getId()+"' and pwd='"+dto.getPwd()+"'";
+		try {
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				result = new MemberDTO();
+				result.setId(rs.getString("id"));
+				result.setPwd(rs.getString("pwd"));
+				result.setNickName(rs.getString("nick_name"));
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return result;
+	}
+	
+	
 	void close(){
 		if(con!=null) {try {con.close();} catch (SQLException e) {e.printStackTrace();}}
 		if(stmt!=null) {try {stmt.close();} catch (SQLException e) {e.printStackTrace();}}

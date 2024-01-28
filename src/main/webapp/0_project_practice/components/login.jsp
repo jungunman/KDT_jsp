@@ -8,4 +8,5 @@
 		<input type="password" name="pwd" placeholder="비번" /> <br/>
 		<input type="submit" value="로그인" />
 	</form>
+	<a href="screens/join.jsp">회원가입</a>
 </div>    

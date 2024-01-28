@@ -20,7 +20,7 @@
 		</nav>
 	</header>
 	<main>
-		<jsp:include page="screens/join.jsp" />
+		<jsp:include page="screens/home.jsp" />
 	</main>
 	<aside>
 		<jsp:include page="components/login.jsp" />

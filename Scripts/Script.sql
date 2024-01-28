@@ -9,7 +9,7 @@ create table member(
 	front_num varchar(6),
 	back_num varchar(7),
 	gender int
-);
+);'
 
 alter table member add gender int;
 
@@ -33,3 +33,7 @@ desc board;
 -- 회원가입 쿼리
 
 insert into member values('firstMember','fisrtId','firstPwd','firstMail','01011112222',sysdate(),'950530','1234567',0);
+
+-- 로그인 쿼리
+
+select id,pwd,nick_name from member where id='1111' and pwd='2222';
