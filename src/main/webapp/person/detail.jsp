@@ -31,6 +31,12 @@
 		<td>기상</td><td>${dto.wakeup }</td>
 	</tr><tr>
 		<td>주소</td><td>${dto.addr }</td>
+	</tr><tr>
+		<td colspan="2" align="right">
+			<a href='<c:url value="/person/modifyForm.jsp?pid=${dto.pid }"/>'>수정</a>
+			<a href='<c:url value="/person/delete.jsp?pid=${dto.pid }"/>'>삭제</a>
+			<a href='<c:url value="/person/list.jsp"/>'>목록으로</a>
+		</td>
 	</tr>
 </table>
 </body>
