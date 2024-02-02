@@ -535,3 +535,337 @@ union
 select menu, option from mm3;
 
 
+-- subquery 쿼리 안에 쿼리문
+
+-- from 절에서 사용한 것
+select *, mid("가양미우수" , interval(avg,0,60,70,80,90),1) from
+(select *, tot/3 as avg from
+(select *, kor+eng+mat as tot from student) e) e2;
+
+-- where절에서 사용한 subquery
+select name from stud_info where name ='나미수';
+
+
+
+select * 
+from stud_info 
+where 
+friend = (select name from stud_info where name ='소수수');
+
+
+-- insert into 절 에서도 사용 가능
+
+select max(kor)+1 from student;
+
+
+
+insert into student (ban,name,kor,eng,mat) values
+(2,'kings',97,96,95)
+;
+
+
+
+insert into student (ban,name,kor,eng,mat) values
+(2,
+'kings',
+(select max(kor)+1 from student ko),
+(select max(eng)+1 from student en),
+(select max(mat)+1 from student ma))
+;
+
+
+
+select name from stud_info where age >= 30;
+
+
+
+select * from stud_info si 
+where addr in ('마포구','강남구','서초구');
+
+
+
+select * from stud_info si 
+where addr in (select addr  from stud_info where age >= 30);
+
+
+
+select age from stud_info si where name ='식부기';
+
+
+/*
+select * from exam
+where kor > all (select kor from exam where sid = 'aaa'); -- all 은 가장 높은 값  : 88
+
+
+
+select * from exam
+where kor > any (select kor from exam where sid = 'aaa'); -- any 는 가장 낮은 값  : 46
+*/
+
+
+select name,eng, kor-5 
+from student stud
+where 
+	(select avg(eng) 
+	from student s)
+>= eng; -- 영어 평균 61점
+
+
+
+select * from stud_info si ;
+
+insert into stud_info (name,age,addr) value ('홍길동',23,'서대문구');
+insert into stud_info (name,age,addr) value ('홍준표',60,'대구');
+insert into stud_info (name,age,addr) value ('홍박사',33,'홍대입구');
+insert into stud_info (name,age,addr) value ('홍홍홍',47,'입벌구');
+insert into stud_info (name,age,addr) value ('홍바람',97,'길구봉구');
+
+commit;
+
+rollback;
+-- rollback to savepoint sp2;
+
+savepoint sp1;
+savepoint sp2;
+savepoint sp3;
+
+
+
+
+
+insert into student
+values (1,
+'홍준표'
+,99
+,10
+,50),
+(12,
+'홍길동'
+,100
+,100
+,0),
+(1,
+'홍박사'
+,20
+,10
+,30);
+
+select * from student;
+commit;
+rollback;
+
+
+
+-- 제약 조건을 수정할 때
+-- not null과 unique()의 방법이 다르다
+
+create table memeber(
+	mid varchar(50) primary key,
+	mname varchar(100) not null,
+	tel varchar(20) unique,
+	addr varchar(100)
+);
+
+insert into member values
+('aaa','정우성','1111','니네집');
+
+/* 기본키 null이면 안 됨 프라이머리키는 필수로 값이 들어가야 함. 그리고 중복은 절대 허용하지 않음. 유일해야하합니다.
+insert into member values
+('정북성','1111','니네집');
+insert into member values
+('aaa','정좌성','1111','니네집');
+*/
+
+
+select * from member;
+
+select * from information_schema.columns where TABLE_SCHEMA = 'jsp_db' and TABLE_NAME = 'member';
+
+
+-- 테이블 제약 조건 확인 (not null 은 확인 불가)
+select * from information_schema.table_constraints;
+
+/* 프라이머리키 부재로 안 됨.
+create table gallery(
+	pno int  auto_increment,
+	title varchar(50)
+);
+
+auto_increment는 자료형이 int여야 함!
+create table gallery(
+	pno varchar(50) primary auto_increment,
+	title varchar(50)
+);
+*/
+create table gallery(
+	pno int primary key auto_increment,
+	title varchar(50)
+);
+insert into gallery (pno, title) values (40,'봄4');
+insert into gallery (title) values ('봄5');
+
+select * from gallery;
+
+update gallery set pno=1 where title='봄2'
+
+create table stud(
+	mid varchar(50),
+	pname varchar(100),
+	tel varchar(20),
+	addr varchar(100)
+);
+select * from stud;
+
+-- [ 제약조건 ] 추가
+alter table stud add constraint st_pk primary key(mid);
+alter table stud add constraint tel_uni unique(tel);
+-- alter table stud add constraint pname_null not null(pname);
+alter table stud modify column pname varchar(100) not null;
+/* primary key라 필수! auto_increment도 아니 잔슴~
+insert into stud(pname) values ('떼끄');
+*/
+
+insert into stud(mid,pname) values ('aaa','떼끄');
+
+desc stud;
+insert into stud(mid,tel) values ('bbb','1111');
+insert into stud(mid) values ('ccc');
+
+-- [ 제약 조건 삭제! ]
+alter table stud drop primary key;
+alter table stud drop index tel_uni;
+alter table stud modify column pname varchar(100) null;
+alter table stud modify column mid varchar(50) null;
+
+-- [컬럼 추가 하면서 제약조건 설정]
+
+alter table stud add sno int auto_increment primary key;
+alter table stud add email varchar(100) unique;
+alter table stud add birth date not null;
+
+
+create table eat(
+	eid int auto_increment primary key,
+	menu varchar(100),
+	price int,
+	sid int,
+	constraint eat_fk foreign key(sid) references stud(sno)
+);
+
+insert into eat(menu, price, sid) values ('김치찌개',7000,1);
+insert into eat(menu, price, sid) values ('된장찌개',6000,1);
+insert into eat(menu, price) values ('참치찌개',4500);
+-- insert into eat(menu, price, sid) values ('부대찌개',6000,10);
+delete from stud where sno =2;
+delete from stud where sno =1;
+
+create table bob(
+	eid int auto_increment primary key,
+	menu varchar(100),
+	price int,
+	sid int
+);
+
+-- 만들어진 테이블에 외래키 설정
+alter table bob add constraint bob_fk foreign key (sid) references stud(sno);
+insert into bob(menu,price, sid) values ('김치찌개',7000,3);
+
+-- 외래키 삭제
+alter table bob drop foreign key bob_fk;
+
+
+/* student 테이블의 sid를 stud_info 테이블의 si_id를 참조하세요
+ * 데이터 및 제약 조건 설정하기
+ * */
+alter table stud_info modify column name varchar(10) primary key;
+alter table student add constraint stud_fk foreign key(name) references stud_info(name);
+delete from student stud, stud_info si
+where stud.name is not si.name;
+
+
+/* View */
+
+select *, kor+eng+mat as tot, (kor+eng+mat)/3 as aaa
+from student s 
+where kor > 50;
+
+-- view 정의
+create view exam_kor_50 as 
+select *, kor+eng+mat as tot, (kor+eng+mat)/3 as aaa
+from student s 
+where kor > 50;
+
+
+select * from exam_kor_50;
+
+desc exam_kor_50;
+
+show create view exam_kor_50;
+-- CREATE ALGORITHM=UNDEFINED DEFINER=`green`@`localhost` SQL SECURITY DEFINER VIEW `exam_kor_50` AS select `s`.`ban` AS `ban`,`s`.`name` AS `name`,`s`.`kor` AS `kor`,`s`.`eng` AS `eng`,`s`.`mat` AS `mat`,`s`.`sid` AS `sid`,`s`.`kor` + `s`.`eng` + `s`.`mat` AS `tot`,(`s`.`kor` + `s`.`eng` + `s`.`mat`) / 3 AS `aaa` from `student` `s` where `s`.`kor` > 50
+
+
+-- view 수정
+alter view exam_kor_50 as 
+select *, (kor+eng+mat)/3 as aaa, mid('가양미우수', interval ((kor+eng+mat)/3, 0,60,70,80,90), 1)
+from student s 
+where kor > 50;
+
+select * from exam_kor_50;
+
+-- view 삭제
+drop view exam_kor_50;
+select * from exam_kor_50;
+
+-- view 데이터 추가(insert)
+-- 안됨!
+
+-- view와 원본 테이블 모두 변환
+update exam_kor_50 set ban= 1 where name='나미수';
+
+delete from exam_kor_50 where name='나미수';
+
+-- index 생성
+create index student_idx 
+on student(ban, name);
+
+-- 테이블 수정에서 인덱스 추가
+alter table student add index student_idx2(ban desc, name);
+
+-- unique하게 index 생성
+create unique index mm2_idx 
+on mm2(menu);
+
+insert into mm2 values ('어묵',5000,2);
+
+-- 유니크에러 뜹니다!
+-- insert into mm2 values ('어묵',3000,4);
+
+-- 메뉴가 unique하지 않아서 에러 발생
+/*
+create unique index mm3_idx 
+on mm3(menu);
+*/
+
+
+show index from student;
+show index from mm2;
+
+-- 인덱스 삭제
+alter table student drop index student_idx;
+drop index mm2_idx on mm2;
+
+/* #문제! bob 테이블에 menu, price로 unique 인덱스를 생성하세요*/
+drop index bob_idx on bob;
+alter table bob add unique index bob_idx(menu,price);
+show index from bob;
+/*1. 아이피를 보고 서버로 진입
+ *2. 
+ * 
+ */
+
+
+
+
+
+
+

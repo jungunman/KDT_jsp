@@ -84,7 +84,8 @@
 
 	<h1>jdbc</h1>
 	<a href="person/list.jsp">회원목록</a>
-
+	
+	<h2>디비 배우는 중!</h2>
 
 
 	<br/>

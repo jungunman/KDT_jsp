@@ -115,9 +115,6 @@ public class PersonDAO {
 		return dto;
 	}
 	
-	
-	
-	
 	public int write(PersonDTO dto){
 		int res = 0;
 		
@@ -137,5 +134,51 @@ public class PersonDAO {
 		
 		return res;
 	}
+	
+	public int delete(String pid){
+		int res = 0;
+		
+		try {
+			sql = "delete from person where pid = '"+pid+"'";
+			
+			System.out.println(sql);
+			
+			res = stmt.executeUpdate(sql);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			close();
+		}
+		
+		return res;
+	}
+	
+
+	public int modify(PersonDTO dto){
+		int res = 0;
+		
+		try {
+			sql = "update person set "
+					+ "addr = '"+dto.getAddr()+"', "
+					+ "age = "+dto.getAge()+", "
+					+ "height = "+dto.getHeight()+", "
+					+ "reg_date = '"+dto.getRegDateStr()+"', "
+					+ "email = '"+dto.getEmail()+"' "
+					+ "where pid = '"+dto.getPid()+"'";
+			
+			System.out.println(sql);
+			
+			res = stmt.executeUpdate(sql);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			close();
+		}
+		
+		return res;
+	}
+
 
 }
