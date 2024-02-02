@@ -16,6 +16,38 @@
 				"type": "dev",
 				"auth-model": "native"
 			}
+		},
+		"mariaDB-18d675fffe3-4d1e6898ba4af342": {
+			"provider": "mysql",
+			"driver": "mariaDB",
+			"name": "mvc_db",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "mvc_db",
+				"url": "jdbc:mariadb://localhost:3306/mvc_db",
+				"configurationType": "MANUAL",
+				"home": "mysql_client",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		},
+		"mariaDB-18d67814718-33b2bd49840fbfbd": {
+			"provider": "mysql",
+			"driver": "mariaDB",
+			"name": "jsp_db",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "jsp_db",
+				"url": "jdbc:mariadb://localhost:3306/jsp_db",
+				"configurationType": "MANUAL",
+				"home": "mysql_client",
+				"type": "dev",
+				"auth-model": "native"
+			}
 		}
 	},
 	"connection-types": {
